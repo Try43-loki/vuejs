@@ -55,20 +55,53 @@
         >Grape
         <input type="checkbox" id="grape" value="Grape" v-model="fruits" />
       </label>
+      <br />
+      <br />
+      <p>Your color is : {{ colors }}</p>
+      <!-- <div
+        class="mt-4 h-20 w-20 bg-black rounded-md"
+        :class="{
+          'bg-green-500': colors === 'green',
+          'bg-red-500': colors === 'red',
+          'bg-blue-500': colors === 'blue',
+        }"
+      ></div> -->
+      <select
+        v-model="colors"
+        class="border mt-5 outline-none rounded-md text-sm px-2 py-1"
+      >
+        <option disabled value="">You can select</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="red">Red</option>
+      </select>
+      <br />
+      <input type="range" v-model="numbers" min="0" max="50" />
+      <div
+        class="h-96 w-96 bg-black rounded-sm"
+        :style="{ borderRadius: numbers + '%' }"
+        :class="{
+          'bg-green-500': colors === 'green',
+          'bg-red-500': colors === 'red',
+          'bg-blue-500': colors === 'blue',
+        }"
+      ></div>
     </form>
   </div>
 </template>
 
 <script setup>
-import { ref , computed } from "vue";
+import { ref, computed } from "vue";
 const name = ref("");
 const gender = ref("");
 const range = ref(0);
 const school = ref("");
 const fruits = ref([]);
+const colors = ref("");
+const numbers = ref(0);
 const formattedFruits = computed(() => {
-      return fruits.value.join(", "); // Join the array without quotes
-    });
+  return fruits.value.join(", "); // Join the array without quotes
+});
 </script>
 
 <style lang="scss" scoped></style>

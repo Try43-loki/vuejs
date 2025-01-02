@@ -1,11 +1,11 @@
 <template>
   <div>
-    <V_model/>
+    <ListStudent/>
   </div>
 </template>
 
 <script setup>
-import V_model from "./components/V_model.vue";
+import ListStudent from "./components/ListStudent.vue";
 </script>
 
 <style lang="scss" scoped></style>
