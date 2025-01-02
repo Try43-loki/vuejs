@@ -1,0 +1,58 @@
+<script setup>
+import { ref } from "vue";
+
+const name = ref("Jonh Doe");
+const status = ref("active");
+const tasks = ["task1", "task2", "task3", "task4"];
+const showPassword = ref(false);
+const password = ref("");
+
+const toggleStatus = () => {
+  if (status.value === 'active') {
+    status.value = 'pending';
+  } else if (status.value === 'pending') {
+    status.value = 'inactive';
+  } else {
+    status.value = 'active';
+  }
+};
+
+let count = ref(0);
+
+const togglePassword = () => {
+  showPassword.value = !showPassword.value;
+};
+</script>
+
+<template>
+  <div>
+    <h1 class="text-white">{{ name }}</h1>
+    <p class="text-white text-sm" v-if="status === 'active'">User is active</p>
+    <p class="text-white text-sm" v-else-if="status === 'pending'">User is pending</p>
+    <p class="text-white text-sm" v-else>User is inactive</p>
+    <ul>
+      <li class="text-white" v-for="task in tasks" :key="task">{{ task }}</li>
+    </ul>
+    <button v-on:click="toggleStatus" class="text-sm px-2 py-1 rounded-md bg-white text-purple-600 mt-2">change status</button>
+    <br>
+    <p class="mt-2 text-white">Number is {{ count }}</p>
+    <button v-on:click="count++" class="mt-2 px-2 py-1 rounded-md bg-white">Increase</button>
+    <button v-on:click="count--" :disabled="count === 0" :class="{'bg-red-500 cursor-not-allowed text-white': count === 0}" class="ml-2 mt-2 px-2 py-1 rounded-md bg-white">Decrease</button>
+    <br>
+    <input :type="showPassword ? 'text' : 'password'" v-model="password" class="mt-2 px-2 py-1 rounded-md bg-white outline-none" placeholder="password" />
+    <button v-on:click="togglePassword" class="ml-2 px-2 py-1 rounded-md bg-green-700 text-white">{{ showPassword ? 'Hide' : 'Show' }}</button>
+  </div>
+</template>
+
+
+Chapter 2 vue.js with no tool-chain
+Lesson 3 Binding data to attribute
+  use v-bind : href to sava the link or : href
+  can use with the array object
+  ues :key for unique value
+Lesson 4 Setting Up Events
+  change page
+Lesson 5 Binding Css Class I
+  bind class
+Lesson 6 Using computed properties
+Lesson 5 Binding Css Class II
