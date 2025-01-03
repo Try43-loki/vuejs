@@ -1,11 +1,11 @@
 <template>
   <div>
-    <ListStudent/>
+    <TodoList/>
   </div>
 </template>
 
 <script setup>
-import ListStudent from "./components/ListStudent.vue";
+import TodoList from "./components/TodoList.vue";
 </script>
 
 <style lang="scss" scoped></style>
